@@ -1,0 +1,1334 @@
+
+    <html>
+        
+        <head>
+            <!--  ----------------------------------------------------------------------  -->
+            <!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+            <!--  If necessary, please modify the charset parameter to specify the        -->
+            <!--  character set of your HTML page.                                        -->
+            <!--  ----------------------------------------------------------------------  -->
+            
+            <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"/>
+                <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+            
+            
+            <script>
+            function timestamp() { 
+                var response = document.getElementById("g-recaptcha-response"); 
+                if (response == null || response.value.trim() == "") {
+                    var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+                    elems["ts"] = JSON.stringify(new Date().getTime());
+                    document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
+                } 
+            } setInterval(timestamp, 500); 
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+            <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'/>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+            <script type="text/javascript" src="https://d1b3llzbo1rqxo.cloudfront.net/attributer.js"></script>
+            <script> window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);} gtag('js', new Date());gtag('config', 'G-RWGECJ3X8B');
+            </script>
+        </head>
+        
+        
+        <!--  ----------------------------------------------------------------------  -->
+        <!--  NOTE: Please add the following <div class="container" id="main-block"> and <style> elements to your page.             -->
+        <!--  ----------------------------------------------------------------------  -->
+        <style>
+            .register-form {
+            margin: 0 auto;
+            }
+            
+            .container {
+            margin: 24px;
+            max-width: 390px;
+            padding: 55px 32px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(181,160,129, 1) 0 10px, rgba(181,160,129, .1) 10px 100%),rgba(255, 255, 255, 1);
+            box-shadow: 0px 6px 36px 0px rgba(0, 0, 0, 0.25);
+            }
+            
+            
+            h4 {
+            font-size: 22px;
+            color: rgba(181,160,129);
+            }
+            
+            .my-btn,
+            .my-btn:hover,
+            .my-btn:active,
+            .my-btn:disabled {
+            width: 100%;
+            height: 49px;
+            border-radius: 8px;
+            padding: 8px 24px;
+            color: #FFF;
+            font-family: 'Inter';
+            font-size: 13.756px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            }
+            
+            
+            .btn-main,
+            .btn-main:hover,
+            .btn-main:active,
+            .btn-main:disabled {
+            margin-top: 18px;
+            background-color: rgba(90,22,0, 1);
+            border: solid rgba(90,22,0, 1) 1px;
+            color: rgba(255, 255, 255, 1);
+            
+            }
+            
+            .btn-secondary,
+            .btn-secondary:hover,
+            .btn-secondary:focus,
+            .btn-destructive,
+            .btn-destructive:focus,
+            .btn-destructive:hover {
+            background: #CCCCCC;
+            color: #000000;
+            border: solid #CCCCCC 1px;
+            }
+            
+            .btn-destructive,
+            .btn-destructive:focus,
+            .btn-destructive:hover {
+            color: #B4002B;
+            }
+            
+            #add_parent_btn_wrap,
+            #back_btn_wrap {
+            margin-bottom: 16px;
+            }
+            
+            
+            .form-select-wrap {
+            position: relative;
+            margin-bottom: 10px;
+            }
+            
+            .form-select-wrap .invalid-message {
+            position: absolute;
+            }
+            
+            .input-wrap {
+            margin-bottom: 10px;
+            }
+            
+            .invalid-message {
+            display: none;
+            color: var(--Alert-Default, #E41244);
+            font-family: 'Inter';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            }
+            
+            .is-invalid .invalid-message {
+            display: block;
+            }
+            
+            .is-invalid input,
+            .is-invalid select {
+            border: 1px solid #E41244;
+            }
+            
+            .select-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-size: 20px;
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 18px;
+            bottom: 12px;
+            pointer-events: none;
+            cursor: pointer;
+            }
+            
+            .form-check-label {
+            width: calc(100% - 24px);
+            padding: 4px 0 0 8px;
+            text-align: left;
+            }
+            
+            .form-control,
+            .form-select {
+            height: 46px;
+            padding: 8px 12px;
+            margin: 6px 0;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.40);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), rgba(255, 255, 255, 1);
+            }
+            
+            .form-control:hover,
+            .form-select:hover {
+            padding: 8px 12px;
+            margin: 6px 0;
+            border-radius: 4px;
+            border: 2px solid rgba(0, 52, 90, 0.50);
+            background: linear-gradient(0deg, rgba(0, 52, 90, 0.05) 0%, rgba(0, 52, 90, 0.05) 100%), rgba(255, 255, 255, 1);
+            }
+            
+            .form-control:active,
+            .form-control:focus,
+            .form-select:active,
+            .form-select:focus {
+            padding: 8px 12px;
+            margin: 6px 0;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 52, 90, 0.40);
+            background: linear-gradient(0deg, rgba(0, 52, 90, 0.05) 0%, rgba(0, 52, 90, 0.05) 100%), rgba(255, 255, 255, 1);
+            }
+            
+            #second_step,
+            #third_step {
+            display: none;
+            }
+            
+            .third_step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 400px;
+            margin: 78px 54px;
+            }
+            
+            .form-check-input {
+            border-radius: 4px;
+            margin: 8px 0;
+            border: solid rgba(1, 52, 90, 0.4) 0.76px;
+            }
+            
+            input,
+            select {
+            font-family: Inter, sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: rgba(0, 0, 0, 0.9);
+            }
+            
+            .accordion {
+            margin: 18px 0;
+            }
+            
+            .accordion-item,
+            .accordion-item:not(.collapsed) {
+            margin: 16px 0;
+            border: solid rgba(181,160,129, 0.4) 1px;
+            border-radius: 4px;
+            }
+            
+            .accordion-button,
+            .accordion-button:not(.collapsed),
+            .accordion-body,
+            .accordion-body:not(.collapsed) {
+            border: none;
+            box-shadow: none;
+            color: rgba(0, 0, 0, 0.90);
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            }
+            
+            .accordion-button,
+            .accordion-button:not(.collapsed) {
+            height: 46px;
+            background-color: transparent;
+            padding: 8px 0 !important;
+            }
+            
+            .accordion-button:not(.collapsed) {
+            border-bottom: 1px solid rgba(181,160,129, 0.20);
+            }
+            
+            .accordion-body,
+            .accordion-body:not(.collapsed) {
+            background-color: rgba(181,160,129, .2);
+            }
+            
+            .accordion-button:focus {
+            box-shadow: none;
+            }
+            
+            .accordion-header {
+            height: 46px;
+            height: auto;
+            padding: 0 16px;
+            background-color: rgba(181,160,129, .2);
+            }
+            
+            .text-block {
+            margin: 18px 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            }
+            
+            .text,
+            a,
+            label {
+            color: rgba(0, 0, 0, 0.90);
+            font-family: 'Inter';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: capitalize;
+            }
+            
+            .spinner-border {
+            margin-top: 12px;
+            }
+            
+            
+            .logo-block {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 32px 0;
+            height: 60px;
+            }
+            
+            .aryval-logo-block {
+            height: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            }
+            
+            .aryval-logo {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            }
+            
+            .aryval-logo img {
+            height: 12px;
+            margin-left: 4px;
+            }
+            
+            .input-wrap.required label:after,
+            .form-select-wrap.required label:after {
+            content: "*";
+            color: red;
+            }
+            
+            input:focus {
+            box-shadow: none !important;
+            }
+            
+            .typ-header {
+            color: rgba(90,22,0, 1);
+            text-align: center;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 36px;
+            }
+            
+            .custom-message {
+            color: var(--Text-Secondary, rgba(0, 52, 90, 0.90));
+            text-align: center;
+            font-family: 'Inter';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-top: 32px;
+            }
+            
+            
+            .popover {
+            left: 40% !important;
+            }
+            .btn {
+            margin: 1%;
+            }
+        </style>
+        
+        <body>
+            <div class="container" id="main-block">
+                <!--<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DHp0000033JzZ"
+method="POST" id="register_form" class="register-form">-->
+                <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DAu000003bx3t"
+                      method="POST" id="register_form" class="register-form">
+                    <div class="logo-block"><img src="https://aryval.my.salesforce.com/sfc/dist/version/download/?oid=00DAu000003bx3t&ids=068JR00000H1am4&d=%2Fa%2FJR000000OcQj%2FwhRV2GWfNKQlJmDEWqQwRscLWE1JwSJuX09iCDK4hyk&asPdf=false" /></div>
+                    <input type="hidden" name='captcha_settings'
+                           value='{"keyname":"ABCSchoolv2","fallback":"true","orgId":"00DAu000003bx3t","ts":""}'/>
+                    
+                    <input type="hidden" name="oid" id="oid" value="00DAu000003bx3t" />
+                    <input type="hidden" name="retURL" id="retURL" value="" />
+                    <input type="hidden" name="00NJR0000021fAp" id="00NJR0000021fAp" value="[channel]"/>
+                    <input type="hidden" name="00NJR0000021fAm" id="00NJR0000021fAm" value="[channeldrilldown1]"/>
+                    <input type="hidden" name="00NJR0000021fAn" id="00NJR0000021fAn" value="[channeldrilldown2]"/>
+                    <input type="hidden" name="00NJR0000021fAo" id="00NJR0000021fAo" value="[channeldrilldown3]"/>
+                    <input type="hidden" name="00NJR0000021fAs" id="00NJR0000021fAs" value="[landingpage]"/>
+                    <input type="hidden" name="00NJR0000021fAt" id="00NJR0000021fAt" value="[landingpagegroup]"/>
+                    <input id="country" maxlength="40" name="country" size="20" type="hidden" />
+                    <textarea id="00NHp00000f5Sqg" name="00NHp00000f5Sqg" rows="3" type="text" wrap="soft" hidden="true"></textarea>
+                    <div id="first_step">
+                        <div class="text-block">
+                            <h4>Step 1 of 2</h4>
+                        </div>
+                        <div class="form-group">
+                            
+                            <div class="accordion" id="parentsAccordion">
+                                <div class="accordion-item" id="parent_1">
+                                    <h2 class="accordion-header" id="headingOneParent">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOneParent" aria-expanded="true" aria-controls="collapseOneParent"
+                                                id="accordion_button_parent_1">
+                                            Parent Information
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOneParent" class="accordion-collapse collapse show" aria-labelledby="headingOneParent"
+                                         data-bs-parent="#parentsAccordion">
+                                        <div class="accordion-body">
+                                            <div id="first_name_wrap" class="input-wrap required">
+                                                <label for="first_name">First Name</label><input id="first_name" class="form-control" maxlength="40"
+                                                                                                 name="first_name" type="text"  />
+                                                <div class="invalid-message">
+                                                    Please enter a first name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="last_name_wrap" class="input-wrap required">
+                                                <label for="last_name">Last Name</label><input id="last_name" class="form-control" maxlength="80"
+                                                                                               name="last_name" type="text"  />
+                                                <div class="invalid-message">
+                                                    Please enter a last name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="email_wrap" class="input-wrap required">
+                                                <label for="email">Email</label><input id="email" class="form-control" maxlength="100" name="email"
+                                                                                       type="email"  />
+                                                <div class="invalid-message">
+                                                    Please enter an email
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="phone_wrap" class="input-wrap required">
+                                                <label for="phone">Mobile number</label><input id="phone" class="form-control" maxlength="40"
+                                                                                               name="phone" type="tel" placeholder=" e.g. (204) 555-1234"
+                                                                                               oninput="handleChangeField(this.id, this.type);" />
+                                                <div class="invalid-message">
+                                                    Please enter a mobile number
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item" id="parent_2" >
+                                    <h2 class="accordion-header" id="headingTwoParent">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseTwoParent" aria-expanded="true" aria-controls="collapseTwoParent"
+                                                id="accordion_button_parent_2">
+                                            Parent 2 Information
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwoParent" class="accordion-collapse collapse show" aria-labelledby="headingTwoParent"
+                                         data-bs-parent="#parentsAccordion">
+                                        <div class="accordion-body">
+                                            
+                                            <div id="00NHp00000f5Sqi_wrap" class="input-wrap required">
+                                                <label for="00NHp00000f5Sqi">First Name</label>
+                                                <input id="00NHp00000f5Sqi" class="form-control" maxlength="40" name="00NHp00000f5Sqi"
+                                                       type="text" />
+                                                <div class="invalid-message">
+                                                    Please enter a first name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="00NHp00000f5Sqj_wrap" class="input-wrap required">
+                                                <label for="00NHp00000f5Sqj">Last Name</label>
+                                                <input id="00NHp00000f5Sqj" class="form-control" maxlength="40" name="00NHp00000f5Sqj"
+                                                       type="text" />
+                                                <div class="invalid-message">
+                                                    Please enter a last name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="00NHp00000f5Sqh_wrap" class="input-wrap required">
+                                                <label for="00NHp00000f5Sqh">Email</label>
+                                                <input id="00NHp00000f5Sqh" class="form-control" maxlength="100" name="00NHp00000f5Sqh"
+                                                       type="email" />
+                                                <div class="invalid-message">
+                                                    Please enter an email
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="00NHp00000f5Sqk_wrap" class="input-wrap required">
+                                                <label for="00NHp00000f5Sqk">Mobile number</label>
+                                                <input id="00NHp00000f5Sqk" class="form-control" maxlength="40" name="00NHp00000f5Sqk" type="tel"
+                                                       placeholder=" e.g. (204) 555-1234" oninput="handleChangeField(this.id, this.type);" />
+                                                <div class="invalid-message">
+                                                    Please enter a phone
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <button type="button" id="delete_parent_btn" class="btn btn-light btn-sm my-btn btn-destructive"
+                                                        onclick="handleSecondParent();">
+                                                    Delete parent
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="form-group" id="add_parent_btn_wrap">
+                                <button type="button" id="add_parent_btn" class="btn btn-light btn-sm my-btn btn-secondary"
+                                        onclick="handleSecondParent();">
+                                    Add a parent
+                                </button>
+                            </div>
+                            
+                            <div id="zip_wrap" class="input-wrap required">
+                                <label for="zip">ZIP/Postal code</label><input id="zip" class="form-control" name="zip" type="text"
+                                                                               maxlength="10" oninput="handleChangeField(this.id, this.type);" />
+                                <div class="invalid-message">
+                                    Please enter a zip/postal code
+                                </div>
+                            </div>
+                            
+                            <div id="city_wrap" class="input-wrap">
+                                <label for="city">City</label><input id="city" class="form-control" name="city" type="text" />
+                                <div class="invalid-message">
+                                    Please enter a city
+                                </div>
+                            </div>
+                            
+                            <div id="street_wrap" class="input-wrap">
+                                <label for="street">Address</label><input id="street" class="form-control" name="street" type="text" />
+                                <div class="invalid-message">
+                                    Please enter a address
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="form-group" id="isTermsAndPrivacyPolicy_wrap">
+                            <input class="form-check-input" type="checkbox" id="isTermsAndPrivacyPolicy"/>
+                            <label class="form-check-label text" for="isTermsAndPrivacyPolicy">
+                                By providing your phone number, you agree to receive text messages from ABC School.
+                                Message and data rates may apply. Message frequency varies. Reply STOP to cancel. View our
+                                <a href="https://www.ABCSchool.com/terms_conditions">Terms of Service </a>
+                                and
+                                <a href="https://www.ABCSchool.com/privacy_policy">Privacy Policy</a> for more information.
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" id="continue_btn" class="btn btn-light btn-sm my-btn btn-main"
+                                    onclick="handleNextStep();">
+                                Continue
+                            </button>
+                        </div>
+                        
+                    </div>
+                    
+                    <div id="second_step">
+                        <div class="text-block">
+                            <h4>Step 2 of 2</h4>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-select-wrap" id="students-select_wrap">
+                                <label for="students-select">Number of future students attending</label>
+                                <select class="form-select" name="students-select" id="students-select"
+                                        onchange="handleSelectNumberOfStudents();" >
+                                    <option value="1">1 Student</option>
+                                    <option value="2">2 Students</option>
+                                    <option value="3">3 Students</option>
+                                    <option value="4">4 Students</option>
+                                </select>
+                                <div class="select-icon"></div>
+                                <div class="invalid-message">
+                                    You must select a number of prospectives
+                                </div>
+                            </div>
+                            
+                            <div class="accordion" id="studentsAccordion">
+                                <div class="accordion-item" id="student_1">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne" id="accordion_button_1">
+                                            Future Student 1
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                         data-bs-parent="#studentsAccordion">
+                                        <div class="accordion-body">
+                                            <!-- TODO <hr> -->
+                                            <div id="student_first_name_1_wrap" class="input-wrap required">
+                                                <label for="student_first_name_1">First Name</label>
+                                                <input id="student_first_name_1" class="form-control" maxlength="40" name="student_first_name[]"
+                                                       type="text" onchange="handleChangeStudentName(this.id);" />
+                                                <div class="invalid-message">
+                                                    Please enter a first name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="student_last_name_1_wrap" class="input-wrap required">
+                                                <label for="student_last_name_1">Last name</label>
+                                                <input id="student_last_name_1" class="form-control" maxlength="80" name="student_last_name[]"
+                                                       type="text" onchange="handleChangeStudentName(this.id);" />
+                                                <div class="invalid-message">
+                                                    Please enter a last name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="student_birthdate_1_wrap" class="input-wrap required">
+                                                <label for="student_birthdate_1">Date of birth</label>
+                                                <input id="student_birthdate_1" class="form-control" name="student_birthdate[]" type="date" />
+                                                <div class="invalid-message">
+                                                    Please enter a date of birth
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="entry_year_1_wrap" class="form-select-wrap required">
+                                                <label for="entry_year_1">Year of entry</label>
+                                                <select id="entry_year_1" class="form-select" name="entry_year[]">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a year of entry
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="grade_1_wrap" class="form-select-wrap required">
+                                                <label for="grade_1">Grade of interest</label>
+                                                <select id="grade_1" class="form-select" name="grade[]">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a grade of interest
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="event_of_interest_1_wrap" class="form-select-wrap required">
+                                                <label for="event_of_interest_1">Event of interest</label>
+                                                <select class="form-select" name="event_of_interest[]" id="event_of_interest_1"
+                                                        onchange="handleChangeEventOfinterest(this.id);">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select an event of interest
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="book_an_appointment_1_wrap" class="form-select-wrap required">
+                                                <label for="book_an_appointment_1">Book an Appointment</label>
+                                                <div  class="date_picker_1" data-toggle="popover1" placeholder="Recipient's username" id="date_picker_1" aria-describedby="basic-addon2">
+                                                    
+                                                </div>
+                                                <span class="" data-toggle="popover" id="popoverr"></span>
+                                                <div id="popover_content" class="show"> </div>
+                                                <div id="popover_title" class="show"> </div>
+                                            </div>
+                                            
+                                            <!--<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-html='true' title="Popover title" data-content="<button id='button' type='button'>buton</button>">Click to toggle popover</button>-->
+                                            
+                                            <div id="time_slot_picker_1_wrap" class="form-select-wrap required" hidden="true">
+                                                <label for="time_slot_picker_1">Select the Time
+                                                    Slot</label>
+                                                <select class="form-select" name="time_slot[]" id="time_slot_picker_1"></select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a time slot
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item" id="student_2" hidden="true">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="true" aria-controls="collapseOne" id="accordion_button_2">
+                                            Future Student 2
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+                                         data-bs-parent="#studentsAccordion">
+                                        <div class="accordion-body">
+                                            <div id="student_first_name_2_wrap" class="input-wrap required">
+                                                <label for="student_first_name_2">First Name</label>
+                                                <input id="student_first_name_2" class="form-control" maxlength="40" name="student_first_name[]"
+                                                       type="text" onchange="handleChangeStudentName(this.id);" />
+                                                <div class="invalid-message">
+                                                    Please enter a first name
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="student_last_name_2_wrap" class="input-wrap required">
+                                                <label for="student_last_name_2">Last name</label>
+                                                <input id="student_last_name_2" class="form-control" maxlength="80" name="student_last_name[]"
+                                                       type="text" onchange="handleChangeStudentName(this.id);" />
+                                                <div class="invalid-message">
+                                                    Please enter a last name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="student_birthdate_2_wrap" class="input-wrap required">
+                                                <label for="student_birthdate_2">Date of birth</label>
+                                                <input id="student_birthdate_2" class="form-control" name="student_birthdate[]" type="date" />
+                                                <div class="invalid-message">
+                                                    Please enter a date of birth
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="entry_year_2_wrap" class="form-select-wrap required">
+                                                <label for="entry_year_2">Year of entry</label><select id="entry_year_2" class="form-select"
+                                                                                                       name="entry_year[]">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a year of entry
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="grade_2_wrap" class="form-select-wrap required">
+                                                <label for="grade_2">Grade of interest</label>
+                                                <select id="grade_2" class="form-control" name="grade[]">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a grade of interest
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="event_of_interest_2_wrap" class="form-select-wrap required">
+                                                <label for="event_of_interest_2">Event of interest</label>
+                                                <select class="form-select" name="event_of_interest[]" id="event_of_interest_2"
+                                                        onchange="handleChangeEventOfinterest(this.id);"></select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select an event of interest
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="time_slot_picker_2_wrap" class="form-select-wrap required" hidden="true">
+                                                <label for="time_slot_picker_2">Select the Time
+                                                    Slot</label>
+                                                <select class="form-select" name="time_slot[]" id="time_slot_picker_2"></select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a time slot
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item" id="student_3" hidden="true">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="true" aria-controls="collapseOne" id="accordion_button_3">
+                                            Future Student 3
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+                                         data-bs-parent="#studentsAccordion">
+                                        <div class="accordion-body">
+                                            
+                                            <div id="student_first_name_3_wrap" class="input-wrap required">
+                                                <label for="student_first_name_3">First Name</label>
+                                                <input id="student_first_name_3" class="form-control" maxlength="40" name="student_first_name[]"
+                                                       type="text" onchange="handleChangeStudentName(this.id);" />
+                                                <div class="invalid-message">
+                                                    Please enter a first name
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="student_last_name_3_wrap" class="input-wrap required">
+                                                <label for="student_last_name_3">Last name</label>
+                                                <input id="student_last_name_3" class="form-control" maxlength="80" name="student_last_name[]"
+                                                       type="text" onchange="handleChangeStudentName(this.id);" />
+                                                <div class="invalid-message">
+                                                    Please enter a last name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="student_birthdate_3_wrap" class="input-wrap required">
+                                                <label for="student_birthdate_3">Date of birth</label>
+                                                <input id="student_birthdate_3" class="form-control" name="student_birthdate[]" type="date" />
+                                                <div class="invalid-message">
+                                                    Please enter a date of birth
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="entry_year_3_wrap" class="form-select-wrap required">
+                                                <label for="entry_year_3">Year of entry</label>
+                                                <select id="entry_year_3" class="form-select" name="entry_year[]">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a year of entry
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="grade_3_wrap" class="form-select-wrap required">
+                                                <label for="grade_3">Grade of interest</label>
+                                                <select id="grade_3" class="form-control" name="grade[]">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a grade of interest
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="event_of_interest_3_wrap" class="form-select-wrap required">
+                                                <label for="event_of_interest_3">Event of interest</label>
+                                                <select class="form-select" name="event_of_interest[]" id="event_of_interest_3"
+                                                        onchange="handleChangeEventOfinterest(this.id);">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select an event of interest
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="time_slot_picker_3_wrap" class="form-select-wrap required" hidden ="true">
+                                                <label for="time_slot_picker_3">Select the Time
+                                                    Slot</label>
+                                                <select class="form-select" name="time_slot[]" id="time_slot_picker_3"></select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a time slot
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item" id="student_4" hidden="true">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                aria-expanded="true" aria-controls="collapseOne" id="accordion_button_4">
+                                            Future Student 4
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
+                                         data-bs-parent="#studentsAccordion">
+                                        <div class="accordion-body">
+                                            <div id="student_first_name_4_wrap" class="input-wrap required">
+                                                <label for="student_first_name_4">First Name</label>
+                                                <input id="student_first_name_4" class="form-control" maxlength="40" name="student_first_name[]"
+                                                       type="text" onchange="handleChangeStudentName(this.id);" />
+                                                <div class="invalid-message">
+                                                    Please enter a first name
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="student_last_name_4_wrap" class="input-wrap required">
+                                                <label for="student_last_name_4">Last name</label>
+                                                <input id="student_last_name_4" class="form-control" maxlength="80" name="student_last_name[]"
+                                                       type="text" onchange="handleChangeStudentName(this.id);" />
+                                                <div class="invalid-message">
+                                                    Please enter a last name
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="student_birthdate_4_wrap" class="input-wrap required">
+                                                <label for="student_birthdate_4">Date of birth</label>
+                                                <input id="student_birthdate_4" class="form-control" name="student_birthdate[]" type="date" />
+                                                <div class="invalid-message">
+                                                    Please enter a date of birth
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="entry_year_4_wrap" class="form-select-wrap required">
+                                                <label for="entry_year_4">Year of entry</label>
+                                                <select id="entry_year_4" class="form-select" name="entry_year[]">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a year of entry
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="grade_4_wrap" class="form-select-wrap required">
+                                                <label for="grade_4">Grade of interest</label>
+                                                <select id="grade_4" class="form-control" name="grade[]">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a grade of interest
+                                                </div>
+                                            </div>
+                                            
+                                            <div id="event_of_interest_4_wrap" class="form-select-wrap required">
+                                                <label for="event_of_interest_4">Event of interest</label>
+                                                <select class="form-select" name="event_of_interest[]" id="event_of_interest_4"
+                                                        onchange="handleChangeEventOfinterest(this.id);">
+                                                </select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select an event of interest
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div id="event_of_interest_4_wrap" class="form-select-wrap required">
+                                                <label for="event_of_interest_4">Event of interest</label>
+                                                <div  class="date-picker-25" placeholder="Recipient's username" id="ttry" aria-describedby="basic-addon2">
+                                                    
+                                                </div>
+                                                <span class="" id="example-popover-3"></span>
+                                                <div id="example-popover-3-content" class="hidden"> </div>
+                                                <div id="example-popover-3-title" class="hidden"> </div>
+                                            </div>
+                                            
+                                            
+                                            
+                                            
+                                            <div id="time_slot_picker_4_wrap" class="form-select-wrap required" hidden="true">
+                                                <label for="time_slot_picker_4">Select the Time
+                                                    Slot</label>
+                                                <select class="form-select" name="time_slot[]" id="time_slot_picker_4"></select>
+                                                <div class="select-icon"></div>
+                                                <div class="invalid-message">
+                                                    Please select a time slot
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" id="back_btn_wrap">
+                                <button type="button" id="back_btn" class="btn btn-light btn-sm my-btn btn-secondary"
+                                        onclick="handleBack();">
+                                    Back
+                                </button>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LdHDLcpAAAAACDvWhtSgQlBnG5w5EN5aQ-0VmDN"></div><br/>
+                            <button type="submit" id="submit_btn" class="btn btn-light btn-sm my-btn btn-main">
+                                Secure your spot
+                            </button>
+                        </div>
+                    </div>
+                    <div id="third_step" class="third_step">
+                        
+                        <div class="typ-header">
+                            Thank you!
+                        </div>
+                        <div class="text">
+                            Redirecting...
+                        </div>
+                    </div>
+                    
+                    <div class="text-block text aryval-logo">Powered by
+                        <a href="https://www.aryval.io" target="_blank" rel="noopener noreferrer">
+                            <img
+                                 src="https://aryval.file.force.com/sfc/dist/version/download/?oid=00DHp0000033JzZ&ids=068Hp00000gamLD&d=%2Fa%2FHp000000dyn9%2FIdJ03ccJ1i8pAb5LfahffGFx4OfAnauBD4D0UjepoSc&asPdf=false"/>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <script>
+            var campaigns = [];
+            
+            if (document.readyState === "loading") {
+                console.log('loading...');
+                document.addEventListener("DOMContentLoaded", fetchDataFromSF);
+            } else {
+                console.log('loaded fetchDataFromSF...');
+                fetchDataFromSF();
+            }
+            $(document).ready(function() {
+                alert("Hello world!");
+            });
+            $('[data-toggle=popover]').popover();
+            $(document).on('click', '#button', function(){
+                alert('Clicked');
+            });    
+            /*$(".date_picker_1").datepicker({
+    onSelect: function(dateText) { 
+        //alert('467909');
+        //alert(dateText);
+       
+        $('#popover_title').html('<b>Available Slots</b>');
+        var html = '<button  class="btn btn-success">10:00 AM – 11:00 AM</button><br><button  class="btn btn-success">11:00 AM – 12:00 PM</button><br><button  class="btn btn-success">1:00 PM – 2:00 PM</button>';
+        $('#popover_content').html('Available Slots On <strong>'+dateText+'</strong><br>'+html);
+        $('.date_picker').popover('show');
+        $('[data-toggle=popover]').popover();
+    }
+});*/
+    function fetchDataFromSF() {
+        console.log('fetchDataFromSF...');
+        let today = new Date().toISOString().split("T")[0];
+        document.getElementById("student_birthdate_1").setAttribute("max", today);
+        document.getElementById("student_birthdate_2").setAttribute("max", today);
+        document.getElementById("student_birthdate_3").setAttribute("max", today);
+        document.getElementById("student_birthdate_4").setAttribute("max", today);
+		let url='https://cors-anywhere.herokuapp.com/';
+        fetch(url+'https://aryval--testsched2.sandbox.my.salesforce-sites.com/service/services/apexrest/events/?schoolId=ZCw8RzemTBO0DoDhf17UrfHElp7JJroAD59xkSNHwf8rtHvp2HJvlFwcwEHIjsWyjDUTYyDNcw3unPVL4oTJYA==', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }) .then(response => {
+    // response is opaque and cannot be accessed directly
+    console.log(response.type); // "opaque"
+  })
+  .catch(error => console.error('Fetch error:', error));
+    }
+    
+    function handleChangeStudentName(elemId) {
+        let studNumber = elemId.split('_')[elemId.split('_').length - 1];
+        let fname = document.getElementById(`student_first_name_${studNumber}`).value;
+        let lname = document.getElementById(`student_last_name_${studNumber}`).value;
+        document.getElementById(`accordion_button_${studNumber}`).innerText = `${fname} ${lname}`;
+        
+    }
+    
+    function handleSelectNumberOfStudents(event) {
+        const selectDropdown = document.getElementById("students-select").value;
+        switch (selectDropdown) {
+            case "1":
+                document.getElementById("student_2").hidden = true;
+                document.getElementById("student_3").hidden = true;
+                document.getElementById("student_4").hidden = true;
+                break;
+            case "2":
+                document.getElementById("student_2").hidden = false;
+                document.getElementById("student_3").hidden = true;
+                document.getElementById("student_4").hidden = true;
+                break;
+            case "3":
+                document.getElementById("student_2").hidden = false;
+                document.getElementById("student_3").hidden = false;
+                document.getElementById("student_4").hidden = true;
+                break;
+            case "4":
+                document.getElementById("student_2").hidden = false;
+                document.getElementById("student_3").hidden = false;
+                document.getElementById("student_4").hidden = false;
+                break;
+            default:
+                console.log("Sorry, we are out of " + selectDropdown);
+        }
+    }
+    
+    function handleChangeField(fieldId, fieldType) {
+        let inputField = document.getElementById(fieldId);
+        let formattedInputValue = '';
+        let inputValue = inputField.value;
+        if (fieldType == 'tel') {
+            inputValue = inputValue.replace(/\D/g, '');
+            if (inputValue.length <= 3) {
+                formattedInputValue = `(${inputValue}`;
+                                        } else if (inputValue.length <= 6) {
+                    formattedInputValue = `(${inputValue.substring(0, 3)}) ${inputValue.substring(3)}`;
+            } else {
+                formattedInputValue = `(${inputValue.substring(0, 3)}) ${inputValue.substring(3, 6)}-${inputValue.substring(6, 10)}`;
+        }
+    } else if (fieldId == 'zip') {
+        const regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g;
+        formattedInputValue = inputValue.replaceAll(regex, '');
+        let firstChar = formattedInputValue[0];
+        
+        
+        if (/^\d+$/.test(firstChar)) {
+            formattedInputValue = formattedInputValue.replace(/\D/g, '');
+            formattedInputValue = formattedInputValue.includes('-') ? formattedInputValue.replaceAll('-', '') : formattedInputValue;
+            formattedInputValue = formattedInputValue.length > 5 ? formattedInputValue.substring(0, 5) + '-' + formattedInputValue.substring(5, formattedInputValue.length) : formattedInputValue;
+            formattedInputValue = formattedInputValue.substring(0, 10);
+        } else if (firstChar != null) {
+            formattedInputValue = formattedInputValue.includes(' ') ? formattedInputValue.replaceAll(' ', '') : formattedInputValue
+            formattedInputValue = formattedInputValue.length > 3 ? formattedInputValue.substring(0, 3) + ' ' + formattedInputValue.substring(3, formattedInputValue.length) : formattedInputValue
+            formattedInputValue = formattedInputValue && formattedInputValue.toUpperCase();
+            formattedInputValue = formattedInputValue.substring(0, 7);
+        }
+    }
+    inputField.value = formattedInputValue;
+    }
+    
+    function handleNextStep() {
+        const allFields = document.getElementsByClassName("input-wrap");
+        for (let i = 0; i < allFields.length; i++) {
+            allFields[i].classList.remove("is-invalid");
+            
+        }
+        
+        let isValid = true;
+        isValid = this.validateTextField("first_name") && isValid;
+        isValid = this.validateTextField("last_name") && isValid;
+        isValid = this.validateEmail("email") && isValid;
+        isValid = this.validatePhone("phone") && isValid;
+        //isValid = this.validateTextField("city") && isValid;
+        //isValid = this.validateTextField("street") && isValid;
+        isValid = this.validatePostal("zip") && isValid;
+        let isSecondParent = document.getElementById("parent_2").hidden;
+        let isTermsAccepted = document.getElementById("isTermsAndPrivacyPolicy").checked;
+        
+        if (!isSecondParent) {
+            isValid = this.validateTextField("00NHp00000f5Sqi") && isValid;
+            isValid = this.validateTextField("00NHp00000f5Sqj") && isValid;
+            isValid = this.validateEmail("00NHp00000f5Sqh") && isValid;
+            isValid = this.validatePhone("00NHp00000f5Sqk") && isValid;
+            
+        }
+        
+        if (!isTermsAccepted) {
+            isValid = isTermsAccepted && isValid;
+            document.getElementById("isTermsAndPrivacyPolicy_wrap").classList.add("is-invalid");
+        }
+        
+        if (isValid) {
+            let zipValue = document.getElementById("zip").value;
+            var validRegexCanada = /^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][\s][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]$/;
+            if (zipValue.match(validRegexCanada)) {
+                document.getElementById("country").value = 'Canada';
+            } else {
+                document.getElementById("country").value = 'United States';
+            }
+            document.getElementById("first_step").style.display = "none";
+            document.getElementById("second_step").style.display = "block";
+        }
+    }
+    
+    function handleBack() {
+        document.getElementById("first_step").style.display = "block";
+        document.getElementById("second_step").style.display = "none";
+    }
+    
+    function validateEmail(fieldId) {
+        
+        let field = document.getElementById(fieldId);
+        let value = field.value;
+        var validRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
+        if (value == null || value == "" || !value.match(validRegex)) {
+            document.getElementById(fieldId + '_wrap').classList.add('is-invalid');
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    function validatePhone(fieldId) {
+        let field = document.getElementById(fieldId);
+        let value = field.value;
+        var validRegex = /^(1[.-]?)?(\(\d{3}\)|\d{3})[.-]?\s*\d{3}[.-]?\s*\d{4}$/;
+        if (value == null || value == "" || !value.match(validRegex)) {
+            document.getElementById(fieldId + '_wrap').classList.add('is-invalid');
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    function validatePostal(fieldId) {
+        let field = document.getElementById(fieldId);
+        let value = field.value;
+        var validRegexUSA = /^\d{5}(?:[-\s]\d{4})?$/;
+        var validRegexCanada = /^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][\s][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]$/;
+        if (value.match(validRegexUSA) || value.match(validRegexCanada)) {
+            return true;
+        } else {
+            document.getElementById(fieldId + '_wrap').classList.add('is-invalid');
+            return false;
+        }
+    }
+    
+    function validateTextField(fieldId) {
+        let field = document.getElementById(fieldId);
+        let value = field.value;
+        if (value == null || value == "") {
+            document.getElementById(fieldId + '_wrap').classList.add('is-invalid');
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    function getStudentRecords(studentId) {
+        let obj = {
+            first_name: document.getElementById("student_first_name_" + studentId).value,
+            last_name: document.getElementById("student_last_name_" + studentId).value,
+            entry_year: document.getElementById("entry_year_" + studentId).value,
+            grade: document.getElementById("grade_" + studentId).value,
+            event_of_interest: document.getElementById("event_of_interest_" + studentId).value,
+            is_multiple_time_slot: document.getElementById("time_slot_picker_" + studentId + "_wrap").hidden == true ? false : true,
+            time_slot: document.getElementById("time_slot_picker_" + studentId).value,
+            birthdate: document.getElementById("student_birthdate_" + studentId).value,
+        };
+        return obj;
+    }
+    
+    function studentFieldsValidation(studentId) {
+        let isValid = true;
+        isValid = validateTextField("student_first_name_" + studentId) && isValid;
+        isValid = validateTextField("student_last_name_" + studentId) && isValid;
+        isValid = validateTextField("entry_year_" + studentId) && isValid;
+        isValid = validateTextField("grade_" + studentId) && isValid;
+        isValid = validateTextField("event_of_interest_" + studentId) && isValid;
+        isValid = validateTextField("student_birthdate_" + studentId) && isValid;
+        let isMultipleTimeSlotHidden = document.getElementById("time_slot_picker_" + studentId + "_wrap").hidden;
+        if (!isMultipleTimeSlotHidden) {
+            isValid = validateTextField("time_slot_picker_" + studentId) && isValid;
+        }
+        return isValid;
+    }
+    
+    function handleSecondParent(event) {
+        let isSecondParent = document.getElementById("parent_2").hidden;
+        document.getElementById("parent_2").hidden = !isSecondParent;
+        document.getElementById("add_parent_btn_wrap").hidden = isSecondParent;
+        let fisrtParent = document.getElementById("collapseOneParent");
+        let sfname = document.getElementById("00NHp00000f5Sqi");
+        let slname = document.getElementById("00NHp00000f5Sqj");
+        let semail = document.getElementById("00NHp00000f5Sqh");
+        let sphone = document.getElementById("00NHp00000f5Sqk");
+        
+        if (isSecondParent == false) {
+            sfname.value = null;
+            sfname.required = false;
+            slname.value = null;
+            slname.required = false;
+            semail.value = null;
+            semail.required = false;
+            sphone.value = null;
+            sphone.required = false;
+            fisrtParent.classList.add("show");
+            fisrtParent.classList.remove("collapse");
+        } else {
+            document.getElementById("00NHp00000f5Sqi").required = true;
+            document.getElementById("00NHp00000f5Sqj").required = true;
+            document.getElementById("00NHp00000f5Sqh").required = true;
+            document.getElementById("00NHp00000f5Sqk").required = true;
+            fisrtParent.classList.remove("show");
+            fisrtParent.classList.add("collapse");
+        }
+    }
+    
+    function handleChangeEventOfinterest(elemId) {
+        var eventId = document.getElementById(elemId).value;
+        let studentNumber = elemId.substring(elemId.length - 1);
+        let selectedEvent = campaigns.find((el) => el.Id == eventId);
+        this.handleCheckMultipleTimeSlots(selectedEvent, studentNumber);
+    }
+    
+    function handleCheckMultipleTimeSlots(selectedEvent, studentNumber) {
+        if (selectedEvent.Has_Multiple_Time_Slots__c == 'Yes') {
+            let timeSlotSelect = document.getElementById(`time_slot_picker_${studentNumber}`);
+            document.getElementById(`time_slot_picker_${studentNumber}_wrap`).hidden = false;
+            this.handleRemoveTimeSlotOptions(timeSlotSelect);
+            this.handleCreateTimeSlotSelector(selectedEvent, timeSlotSelect);
+        } else {
+            document.getElementById(`time_slot_picker_${studentNumber}_wrap`).hidden = true;
+        }
+    }
+    
+    function handleRemoveTimeSlotOptions(timeSlotSelect) {
+        let L = timeSlotSelect.options.length - 1;
+        if (L > 0) {
+            for (let i = L; i >= 0; i--) {
+                timeSlotSelect.remove(i);
+            }
+        }
+    }
+    
+    function handleCreateTimeSlotSelector(selectedEvent, timeSlotSelect) {
+        let timezoneValue = selectedEvent.Timezone__c;
+        for (let i = 1; i < 7; i++) {
+            if (selectedEvent.hasOwnProperty(`Time_Slot_Start_${i}__c`)) {
+                let opt = handleCreateTimeSlotOption(selectedEvent[`Time_Slot_Start_${i}__c`], timezoneValue, `Time_Slot_Start_${i}__c`)
+                timeSlotSelect.appendChild(opt);
+            }
+        }
+    }
+    
+    function handleCreateTimeSlotOption(timeValue, timezone, timeSlot) {
+        var opt = document.createElement("option");
+        opt.value = timeSlot;
+        let formattedTime = timeValue.substring(0, timeValue.lastIndexOf(':'));
+        opt.innerHTML = formattedTime + ' ' + timezone;
+        return opt;
+    }
+    
+    document.getElementById("register_form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        let isValid = true;
+        document.getElementById("submit_btn").disabled = true;
+        let count = document.getElementById("students-select").value;
+        let j = parseInt(count);
+        let studentsList = [];
+        for (let i = 1; i <= j; i++) {
+        isValid = isValid && this.studentFieldsValidation(i);
+        studentsList.push(this.getStudentRecords(i));
+    }
+        
+        let form = document.getElementById("register_form");
+        let orgid = document.getElementById("oid");
+        let returl = document.getElementById("retURL");
+        let response = document.getElementById("00NHp00000f5Sqg");
+        //console.log('isValid...'+isValid);
+        if (isValid) {
+        document.getElementById("second_step").style.display = "none";
+        document.getElementById("third_step").style.display = "flex";
+        response.value = JSON.stringify({
+        students: studentsList
+    });
+    orgid.setAttribute("value", "00DAu000003bx3t");
+    returl.setAttribute(
+        "value",
+        "https://www.aryval.io"
+    );
+    setTimeout(() => {
+        form.submit();
+    }, 300);
+        document.getElementById("submit_btn").disabled = false;
+    } else {
+        document.getElementById("submit_btn").disabled = false;
+    }
+    });
+        </script>
+        </body>
+        
+    </html>
