@@ -11,9 +11,9 @@
             <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <script src="https://www.google.com/recaptcha/api.js"></script>
-            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
             <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"/>
                 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
@@ -1006,17 +1006,97 @@ method="POST" id="register_form" class="register-form">-->
         document.getElementById("student_birthdate_2").setAttribute("max", today);
         document.getElementById("student_birthdate_3").setAttribute("max", today);
         document.getElementById("student_birthdate_4").setAttribute("max", today);
-		let url='https://cors-anywhere.herokuapp.com/';
-        fetch(url+'https://aryval--testsched2.sandbox.my.salesforce-sites.com/service/services/apexrest/events/?schoolId=ZCw8RzemTBO0DoDhf17UrfHElp7JJroAD59xkSNHwf8rtHvp2HJvlFwcwEHIjsWyjDUTYyDNcw3unPVL4oTJYA==', {
+		let url='http://cors-anywhere.herokuapp.com';
+        fetch('https://aryval--testsched2.sandbox.my.salesforce-sites.com/service/services/apexrest/events/?schoolId=ZCw8RzemTBO0DoDhf17UrfHElp7JJroAD59xkSNHwf8rtHvp2HJvlFwcwEHIjsWyjDUTYyDNcw3unPVL4oTJYA==', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
-        }) .then(response => {
-    // response is opaque and cannot be accessed directly
-    console.log(response.type); // "opaque"
-  })
-  .catch(error => console.error('Fetch error:', error));
+        }).then(response => response.json()).then(data => {
+            //data = JSON.parse('{"yearOptions":["Fall 2024","Fall 2025"],"gradeOptions":["Pre-kindergarten","Kindergarten","Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],"events":[{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000ICLPpYAP"},"Id":"701JR00000ICLPpYAP","Name":"Middle School 1-on-1 Tour","Status":"Published","StartDate":"2024-05-07","Has_Multiple_Time_Slots__c":"No","Timezone__c":"CT"},{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000IfLUOYA3"},"Id":"701JR00000IfLUOYA3","Name":"Cup of tea","Status":"Published","StartDate":"2024-05-06","Has_Multiple_Time_Slots__c":"No","Timezone__c":"ET"},{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000Ifb67YAB"},"Id":"701JR00000Ifb67YAB","Name":"12.04.2024","Status":"Published","StartDate":"2024-05-04","Has_Multiple_Time_Slots__c":"No","Timezone__c":"ET"},{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000ICT0lYAH"},"Id":"701JR00000ICT0lYAH","Name":"Coffee Mornings","Status":"Published","StartDate":"2024-04-30","Has_Multiple_Time_Slots__c":"No","Timezone__c":"CT"},{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000IWhHDYA1"},"Id":"701JR00000IWhHDYA1","Name":"New Event for Khrystyna","Status":"Published","StartDate":"2024-04-11","Has_Multiple_Time_Slots__c":"No","Timezone__c":"NT"}]}');
+            console.log('data => ' + JSON.stringify(data));
+            campaigns = data.events;
+            let yearOptions = data.yearOptions;
+            let gradeOptions = data.gradeOptions;
+            campaigns = data.events;
+            alltimeSlots=data.timeslots;
+            //console.log('campaigns => ' + JSON.stringify(campaigns));
+            //console.log('alltimeSlots => ' + JSON.stringify(alltimeSlots));
+            var timeSlotHtmlContent;
+            excludeDates = [];
+            alltimeSlots.forEach(slot => {
+            excludeDates.push(slot.appointmentDate);
+        });
+            console.log('excludeDates => ' + JSON.stringify(excludeDates));
+            $( "#date_picker_1" ).datepicker({
+            beforeShowDay: function(date) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                var formattedDate = $.datepicker.formatDate('yy-mm-dd', date);
+                var isExcluded = ($.inArray(formattedDate, excludeDates) !== -1); 
+                var isPastDate = (date < today);
+                return [isExcluded && !isPastDate];
+            },
+            onSelect: function(dateText) {
+                timeSlotHtmlContent = '';
+                const selectedDate = new Date(dateText);
+                var formattedSelectedDate = $.datepicker.formatDate('yy-mm-dd', selectedDate);
+                alltimeSlots.forEach(slot => {
+                    if(slot.appointmentDate == formattedSelectedDate ){
+                    
+                    var startDateTime = new Date(slot.startTime);      
+                       
+                // Extract hours and minutes from the Date object
+                var hours = startDateTime.getHours();
+                var minutes = startDateTime.getMinutes();                
+                var period = hours >= 12 ? "PM" : "AM";                
+                var hours12 = hours % 12 || 12;                
+                var startTime = `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;                
+             /* var endDateTime = new Date(slot.endTime);  
+                 hours = startDateTime.getHours();
+                 minutes = startDateTime.getMinutes();                
+                 period = hours >= 12 ? "PM" : "AM";                
+                 hours12 = hours % 12 || 12; // Handle midnight (0) as 12                
+        endTime = `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;  */
+                    timeSlotHtmlContent+= '<button  class="btn btn-success">' + startTime +  '</button><br/> ';
+                }
+              });
+                if (timeSlotHtmlContent === "") {
+                   timeSlotHtmlContent = 'Oops! No Available Slots for the day!';
+                 }
+                //$('#popover_title').html('<b>Available Slots</b>');
+            var html = '<button  class="btn btn-success">10:00 AM – 11:00 AM</button><br><button  class="btn btn-success">11:00 AM – 12:00 PM</button><br><button  class="btn btn-success">1:00 PM – 2:00 PM</button>';
+            $('#popover_content').html('Available Slots On <strong>'+dateText+'</strong><br>'+timeSlotHtmlContent);
+            $('.date_picker').popover('show');
+            $('[data-toggle=popover]').popover();
+        }
+                                                  });
+        for (let i = 1; i <= 4; i++) {
+            let eventSelect = document.getElementById("event_of_interest_" + i);
+            campaigns.forEach((c) => {
+                let opt = document.createElement("option");
+                opt.value = c.Id;
+                opt.innerHTML = c.Name;
+                eventSelect.appendChild(opt);
+            });
+            handleCheckMultipleTimeSlots(campaigns[0], i);
+            let gradeSelect = document.getElementById("grade_" + i);
+            gradeOptions.forEach((g) => {
+                let opt = document.createElement("option");
+                opt.value = g;
+                opt.innerHTML = g;
+                gradeSelect.appendChild(opt);
+            });
+            
+            let yearSelect = document.getElementById("entry_year_" + i);
+            yearOptions.forEach((y) => {
+                let opt = document.createElement("option");
+                opt.value = y;
+                opt.innerHTML = y;
+                yearSelect.appendChild(opt);
+            });
+        }
+    }).catch(error => console.error('Fetch error:', error));
     }
     
     function handleChangeStudentName(elemId) {
