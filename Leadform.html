@@ -650,7 +650,7 @@ method="POST" id="register_form" class="register-form">-->
                                             </div>
                                             
                                             
-                                            <div id="book_an_appointment_1_wrap" class="form-select-wrap required">
+                                            <div id="book_an_appointment_1_wrap" class="form-select-wrap required" hidden>
                                                 <label for="book_an_appointment_1">Book an Appointment</label>
                                                 <div  class="date_picker_1" data-toggle="popover1" placeholder="Recipient's username" id="date_picker_1" aria-describedby="basic-addon2">
                                                     
@@ -743,7 +743,17 @@ method="POST" id="register_form" class="register-form">-->
                                                     Please select an event of interest
                                                 </div>
                                             </div>
-                                            
+											
+                                            <div id="book_an_appointment_2_wrap" class="form-select-wrap required" hidden>
+                                                <label for="book_an_appointment_2">Book an Appointment</label>
+                                                <div  class="date_picker_1" data-toggle="popover1" placeholder="Recipient's username" id="date_picker_1" aria-describedby="basic-addon2">
+                                                    
+                                                </div>
+                                                <span class="" data-toggle="popover" id="popoverr"></span>
+                                                <div id="popover_content" class="show"> </div>
+                                                <div id="popover_title" class="show"> </div>
+                                            </div>
+											
                                             <div id="time_slot_picker_2_wrap" class="form-select-wrap required" hidden="true">
                                                 <label for="time_slot_picker_2">Select the Time
                                                     Slot</label>
@@ -825,7 +835,17 @@ method="POST" id="register_form" class="register-form">-->
                                                     Please select an event of interest
                                                 </div>
                                             </div>
-                                            
+											
+                                            <div id="book_an_appointment_3_wrap" class="form-select-wrap required" hidden>
+                                                <label for="book_an_appointment_3">Book an Appointment</label>
+                                                <div  class="date_picker_1" data-toggle="popover1" placeholder="Recipient's username" id="date_picker_1" aria-describedby="basic-addon2">
+                                                    
+                                                </div>
+                                                <span class="" data-toggle="popover" id="popoverr"></span>
+                                                <div id="popover_content" class="show"> </div>
+                                                <div id="popover_title" class="show"> </div>
+                                            </div>
+											
                                             <div id="time_slot_picker_3_wrap" class="form-select-wrap required" hidden ="true">
                                                 <label for="time_slot_picker_3">Select the Time
                                                     Slot</label>
@@ -918,7 +938,15 @@ method="POST" id="register_form" class="register-form">-->
                                                 <div id="example-popover-3-title" class="hidden"> </div>
                                             </div>
                                             
-                                            
+                                            <div id="book_an_appointment_4_wrap" class="form-select-wrap required" hidden>
+                                                <label for="book_an_appointment_4">Book an Appointment</label>
+                                                <div  class="date_picker_1" data-toggle="popover1" placeholder="Recipient's username" id="date_picker_1" aria-describedby="basic-addon2">
+                                                    
+                                                </div>
+                                                <span class="" data-toggle="popover" id="popoverr"></span>
+                                                <div id="popover_content" class="show"> </div>
+                                                <div id="popover_title" class="show"> </div>
+                                            </div>
                                             
                                             
                                             <div id="time_slot_picker_4_wrap" class="form-select-wrap required" hidden="true">
@@ -1345,6 +1373,14 @@ method="POST" id="register_form" class="register-form">-->
         let studentNumber = elemId.substring(elemId.length - 1);
         let selectedEvent = campaigns.find((el) => el.Id == eventId);
         this.handleCheckMultipleTimeSlots(selectedEvent, studentNumber);
+		if(selectedEvent.Name == 'Campus Walk'){
+			document.getElementById("book_an_appointment_"+studentNumber+"_wrap").hidden = false;
+		}else{
+			document.getElementById("book_an_appointment_"+studentNumber+"_wrap").hidden = true;
+		}
+		
+		
+		document.getElementById("add_parent_btn_wrap").hidden = isSecondParent;
     }
     
     function handleCheckMultipleTimeSlots(selectedEvent, studentNumber) {
