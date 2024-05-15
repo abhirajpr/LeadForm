@@ -1048,7 +1048,7 @@ method="POST" id="register_form" class="register-form">-->
                                 var period = hours >= 12 ? "PM" : "AM";
                                 var hours12 = hours % 12 || 12;
                                 var startTime = `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;
-                                timeSlotHtmlContent += '<button data-time="' + slot.startTime + '"  class="btn btn-success time-slot-btn" onclick="getSelectedSlot(this);">' + startTime + '</button><br/> ';
+                                timeSlotHtmlContent += '<button data-time="' + slot.startTime + '"  class="btn btn-success time-slot-btn" onclick="getSelectedSlot(this);">' + startTime + '</button><br/><input id="student_1_timeslot" class="form-control" Label="Selected Time Slot" type="datetime" disabled/> ';
                             }
                         });
                         if (timeSlotHtmlContent === "") {
