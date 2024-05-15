@@ -1048,12 +1048,14 @@ method="POST" id="register_form" class="register-form">-->
                                 var period = hours >= 12 ? "PM" : "AM";
                                 var hours12 = hours % 12 || 12;
                                 var startTime = `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;
-                                timeSlotHtmlContent += '<button data-time="' + slot.startTime + '"  class="btn btn-success time-slot-btn" onclick="getSelectedSlot(this);">' + startTime + '</button><br/><input id="student_1_timeslot" class="form-control" Label="Selected Time Slot" type="datetime" disabled/> ';
+                                timeSlotHtmlContent += '<button data-time="' + slot.startTime + '"  class="btn btn-success time-slot-btn" onclick="getSelectedSlot(this);">' + startTime + '</button><br/> ';
                             }
                         });
                         if (timeSlotHtmlContent === "") {
                             timeSlotHtmlContent = 'Oops! No Available Slots for the day!';
-                        }
+                        }else{
+							timeSlotHtmlContent ='<input id="student_1_timeslot" class="form-control" Label="Selected Time Slot" type="datetime-local" disabled/>';
+						}
                         //$('#popover_title').html('<b>Available Slots</b>');
                         var html = '<button  class="btn btn-success">10:00 AM – 11:00 AM</button><br><button  class="btn btn-success">11:00 AM – 12:00 PM</button><br><button  class="btn btn-success">1:00 PM – 2:00 PM</button>';
                         $('#popover_content_1').html('Available Slots On <strong>' + dateText + '</strong><br>' + timeSlotHtmlContent);
