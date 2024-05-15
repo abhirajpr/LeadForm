@@ -11,10 +11,9 @@
             <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <script src="https://www.google.com/recaptcha/api.js"></script>
-            <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"/>
+         
                 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -375,13 +374,13 @@
             <div class="container" id="main-block">
                 <!--<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DHp0000033JzZ"
 method="POST" id="register_form" class="register-form">-->
-                <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DAu000003bx3t"
+                <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DAw000001yoCs"
                       method="POST" id="register_form" class="register-form">
-                    <div class="logo-block"><img src="https://aryval.my.salesforce.com/sfc/dist/version/download/?oid=00DAu000003bx3t&ids=068JR00000H1am4&d=%2Fa%2FJR000000OcQj%2FwhRV2GWfNKQlJmDEWqQwRscLWE1JwSJuX09iCDK4hyk&asPdf=false" /></div>
+                    <div class="logo-block"><img src="https://aryval.my.salesforce.com/sfc/dist/version/download/?oid=00DAw000001yoCs&ids=068JR00000H1am4&d=%2Fa%2FJR000000OcQj%2FwhRV2GWfNKQlJmDEWqQwRscLWE1JwSJuX09iCDK4hyk&asPdf=false" /></div>
                     <input type="hidden" name='captcha_settings'
-                           value='{"keyname":"ABCSchoolv2","fallback":"true","orgId":"00DAu000003bx3t","ts":""}'/>
+                           value='{"keyname":"ABCSchoolv2","fallback":"true","orgId":"00DAw000001yoCs","ts":""}'/>
                     
-                    <input type="hidden" name="oid" id="oid" value="00DAu000003bx3t" />
+                    <input type="hidden" name="oid" id="oid" value="00DAw000001yoCs" />
                     <input type="hidden" name="retURL" id="retURL" value="" />
                     <input type="hidden" name="00NJR0000021fAp" id="00NJR0000021fAp" value="[channel]"/>
                     <input type="hidden" name="00NJR0000021fAm" id="00NJR0000021fAm" value="[channeldrilldown1]"/>
@@ -980,9 +979,9 @@ method="POST" id="register_form" class="register-form">-->
                 console.log('loaded fetchDataFromSF...');
                 fetchDataFromSF();
             }
-            $(document).ready(function() {
+            /*$(document).ready(function() {
                 alert("Hello world!");
-            });
+            });*/
             $('[data-toggle=popover]').popover();
             $(document).on('click', '#button', function(){
                 alert('Clicked');
@@ -1006,28 +1005,36 @@ method="POST" id="register_form" class="register-form">-->
         document.getElementById("student_birthdate_2").setAttribute("max", today);
         document.getElementById("student_birthdate_3").setAttribute("max", today);
         document.getElementById("student_birthdate_4").setAttribute("max", today);
-		let url='http://cors-anywhere.herokuapp.com';
-        fetch('https://aryval--testsched2.sandbox.my.salesforce-sites.com/service/services/apexrest/events/?schoolId=ZCw8RzemTBO0DoDhf17UrfHElp7JJroAD59xkSNHwf8rtHvp2HJvlFwcwEHIjsWyjDUTYyDNcw3unPVL4oTJYA==', {
+        fetch('https://aryval--partialsb.sandbox.my.salesforce-sites.com/service/services/apexrest/events/?schoolId=2vM5URMuRbEUW6mdSmWcbjCALnD%2F%2BdDIJS9fnPfxK19yjpb0NTTW7AnyZL51rPA1', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(response => response.json()).then(data => {
-            //data = JSON.parse('{"yearOptions":["Fall 2024","Fall 2025"],"gradeOptions":["Pre-kindergarten","Kindergarten","Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Grade 6","Grade 7","Grade 8","Grade 9","Grade 10","Grade 11","Grade 12"],"events":[{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000ICLPpYAP"},"Id":"701JR00000ICLPpYAP","Name":"Middle School 1-on-1 Tour","Status":"Published","StartDate":"2024-05-07","Has_Multiple_Time_Slots__c":"No","Timezone__c":"CT"},{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000IfLUOYA3"},"Id":"701JR00000IfLUOYA3","Name":"Cup of tea","Status":"Published","StartDate":"2024-05-06","Has_Multiple_Time_Slots__c":"No","Timezone__c":"ET"},{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000Ifb67YAB"},"Id":"701JR00000Ifb67YAB","Name":"12.04.2024","Status":"Published","StartDate":"2024-05-04","Has_Multiple_Time_Slots__c":"No","Timezone__c":"ET"},{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000ICT0lYAH"},"Id":"701JR00000ICT0lYAH","Name":"Coffee Mornings","Status":"Published","StartDate":"2024-04-30","Has_Multiple_Time_Slots__c":"No","Timezone__c":"CT"},{"attributes":{"type":"Campaign","url":"/services/data/v59.0/sobjects/Campaign/701JR00000IWhHDYA1"},"Id":"701JR00000IWhHDYA1","Name":"New Event for Khrystyna","Status":"Published","StartDate":"2024-04-11","Has_Multiple_Time_Slots__c":"No","Timezone__c":"NT"}]}');
-            console.log('data => ' + JSON.stringify(data));
             campaigns = data.events;
             let yearOptions = data.yearOptions;
             let gradeOptions = data.gradeOptions;
             campaigns = data.events;
             alltimeSlots=data.timeslots;
-            //console.log('campaigns => ' + JSON.stringify(campaigns));
-            //console.log('alltimeSlots => ' + JSON.stringify(alltimeSlots));
             var timeSlotHtmlContent;
+            var timeSlotMap = [];
+            var selectedTimeSlot;
             excludeDates = [];
             alltimeSlots.forEach(slot => {
             excludeDates.push(slot.appointmentDate);
+            var startDateTime = new Date(slot.startTime); 
+            var hours = startDateTime.getHours();
+                var minutes = startDateTime.getMinutes();                
+                var period = hours >= 12 ? "PM" : "AM";                
+                var hours12 = hours % 12 || 12;                
+                var startTime = `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;
+            timeSlotMap.push({
+                key: slot.startTime,
+                value: startTime
+            });
+            
         });
-            console.log('excludeDates => ' + JSON.stringify(excludeDates));
+            
             $( "#date_picker_1" ).datepicker({
             beforeShowDay: function(date) {
                 const today = new Date();
@@ -1043,7 +1050,6 @@ method="POST" id="register_form" class="register-form">-->
                 var formattedSelectedDate = $.datepicker.formatDate('yy-mm-dd', selectedDate);
                 alltimeSlots.forEach(slot => {
                     if(slot.appointmentDate == formattedSelectedDate ){
-                    
                     var startDateTime = new Date(slot.startTime);      
                        
                 // Extract hours and minutes from the Date object
@@ -1051,14 +1057,8 @@ method="POST" id="register_form" class="register-form">-->
                 var minutes = startDateTime.getMinutes();                
                 var period = hours >= 12 ? "PM" : "AM";                
                 var hours12 = hours % 12 || 12;                
-                var startTime = `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;                
-             /* var endDateTime = new Date(slot.endTime);  
-                 hours = startDateTime.getHours();
-                 minutes = startDateTime.getMinutes();                
-                 period = hours >= 12 ? "PM" : "AM";                
-                 hours12 = hours % 12 || 12; // Handle midnight (0) as 12                
-        endTime = `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;  */
-                    timeSlotHtmlContent+= '<button  class="btn btn-success">' + startTime +  '</button><br/> ';
+                var startTime = `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;  
+                    timeSlotHtmlContent+= '<button data-time="'+ slot.startTime +'"  class="btn btn-success time-slot-btn" onclick="getSelectedSlot(this);">' + startTime +  '</button><br/> ';
                 }
               });
                 if (timeSlotHtmlContent === "") {
@@ -1071,6 +1071,13 @@ method="POST" id="register_form" class="register-form">-->
             $('[data-toggle=popover]').popover();
         }
                                                   });
+            $( ".btn .btn-success .time-slot-btn" ).on( "click", function( event ) {
+                 console.log("clicked JS");
+                 console.log(event.target.dataset.time);
+                event.preventDefault();
+               
+                
+            });
         for (let i = 1; i <= 4; i++) {
             let eventSelect = document.getElementById("event_of_interest_" + i);
             campaigns.forEach((c) => {
@@ -1096,7 +1103,11 @@ method="POST" id="register_form" class="register-form">-->
                 yearSelect.appendChild(opt);
             });
         }
-    }).catch(error => console.error('Fetch error:', error));
+    });
+    }
+    function getSelectedSlot(btnElement){       
+         console.log('SELECTED Time');
+           console.log(btnElement.getAttribute("data-time"));
     }
     
     function handleChangeStudentName(elemId) {
@@ -1388,14 +1399,13 @@ method="POST" id="register_form" class="register-form">-->
         let orgid = document.getElementById("oid");
         let returl = document.getElementById("retURL");
         let response = document.getElementById("00NHp00000f5Sqg");
-        //console.log('isValid...'+isValid);
         if (isValid) {
         document.getElementById("second_step").style.display = "none";
         document.getElementById("third_step").style.display = "flex";
         response.value = JSON.stringify({
         students: studentsList
     });
-    orgid.setAttribute("value", "00DAu000003bx3t");
+    orgid.setAttribute("value", "00DAw000001yoCs");
     returl.setAttribute(
         "value",
         "https://www.aryval.io"
