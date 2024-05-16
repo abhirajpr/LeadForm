@@ -1309,7 +1309,7 @@ function getSelectedSlot(btnElement, studentNumber) {
             is_multiple_time_slot: document.getElementById("time_slot_picker_" + studentId + "_wrap").hidden == true ? false : true,
             time_slot: document.getElementById("time_slot_picker_" + studentId).value,
             birthdate: document.getElementById("student_birthdate_" + studentId).value,
-			appointment_slot:document.getElementById("hidden_time_slot_" + studentId).value
+			appointment_slot:JSON.parse(document.getElementById("hidden_time_slot_" + studentId).value)
         };
         return obj;
     }
